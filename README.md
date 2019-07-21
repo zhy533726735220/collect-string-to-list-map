@@ -1,11 +1,11 @@
 # Collection: 将List<User>处理成Map<String, List<User>>
 
-请解决[`Main`类](https://github.com/hcsp/collect-string-to-list-map/blob/master/src/main/com/github/hcsp/collection/Main.java)中的问题。
+请解决[`Main`类](https://github.com/hcsp/collect-string-to-list-map/blob/master/src/main/java/com/github/hcsp/collection/Main.java)中的问题。
 
 -----
 注意！我们只允许你修改以下文件，对其他文件的修改会被拒绝：
-- [src/main/com/github/hcsp/collection/Main.java](https://github.com/hcsp/collect-string-to-list-map/blob/master/src/main/com/github/hcsp/collection/Main.java)
-- [src/main/com/github/hcsp/collection/User.java](https://github.com/hcsp/collect-string-to-list-map/blob/master/src/main/com/github/hcsp/collection/User.java)
+- [src/main/java/com/github/hcsp/collection/Main.java](https://github.com/hcsp/collect-string-to-list-map/blob/master/src/main/java/com/github/hcsp/collection/Main.java)
+- [src/main/java/com/github/hcsp/collection/User.java](https://github.com/hcsp/collect-string-to-list-map/blob/master/src/main/java/com/github/hcsp/collection/User.java)
 -----
 
 

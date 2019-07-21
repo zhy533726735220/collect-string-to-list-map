@@ -1,2 +1,2 @@
-src/main/com/github/hcsp/collection/Main.java
-src/main/com/github/hcsp/collection/User.java
+src/main/java/com/github/hcsp/collection/Main.java
+src/main/java/com/github/hcsp/collection/User.java
