@@ -1,13 +1,8 @@
 package com.github.hcsp.collection;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Arrays;
 
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
@@ -17,36 +12,7 @@ public class Main {
     // 返回如下映射：
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
-    public static Map<String, List<User>> collect(List<User> users) {
-        Map<String, List<User>> map = new HashMap<>();
-        users.forEach(user -> {
-            String department = user.getDepartment();
-            List<User> departmentUsers = new ArrayList<>();
-            if (map.get(department) != null) {
-                departmentUsers = map.get(department);
-            }
-            departmentUsers.add(user);
-            map.put(department, departmentUsers);
-        });
-        for (Map.Entry<String, List<User>> user : map.entrySet()) {
-            mapValueSort(user);
-        }
-        return map;
-    }
-
-    public static void mapValueSort(Map.Entry<String, List<User>> user) {
-        Collections.sort(user.getValue(), new Comparator<User>() {
-            @Override
-            public int compare(User o1, User o2) {
-                if (o1.getAge() - o1.getAge() > 0) {
-                    return 1;
-                } else if (o1.getAge() - o2.getAge() < 0) {
-                    return -1;
-                }
-                return 0;
-            }
-        });
-    }
+    public static Map<String, List<User>> collect(List<User> users) {}
 
     public static void main(String[] args) {
         System.out.println(
