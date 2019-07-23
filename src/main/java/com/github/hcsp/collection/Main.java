@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Comparator;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
@@ -27,12 +27,7 @@ public class Main {
         }
         for (Map.Entry<String, List<User>> entry : result.entrySet()) {
             List<User> temp = entry.getValue();
-            temp.sort(new Comparator<User>() {
-                @Override
-                public int compare(User o1, User o2) {
-                    return o1.getAge() - o2.getAge();
-                }
-            });
+            Collections.sort(temp);
         }
 
         return result;
