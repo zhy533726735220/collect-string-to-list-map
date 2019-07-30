@@ -24,15 +24,7 @@ public class Main {
         }
         for (List<User> list: map.values()
              ) {
-            list.sort((o1, o2) -> {
-                if (o1.getAge() > o2.getAge()){
-                    return 1;
-                } else if (o1.getAge() < o2.getAge()){
-                    return -1;
-                } else {
-                    return 0;
-                }
-            });
+            list.sort(Comparator.comparingInt(User::getAge));
         }
         return map;
     }
