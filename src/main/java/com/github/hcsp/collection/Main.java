@@ -1,6 +1,11 @@
 package com.github.hcsp.collection;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
@@ -13,7 +18,7 @@ public class Main {
     public static Map<String, List<User>> collect(List<User> users) {
         Map<String, List<User>> res = new HashMap();
         for (User user: users) {
-            if(!res.keySet().contains(user.getDepartment())) {
+            if (!res.keySet().contains(user.getDepartment())) {
                 res.put(user.getDepartment(), new ArrayList());
             }
             List<User> list = res.get(user.getDepartment());
