@@ -1,12 +1,8 @@
 package com.github.hcsp.collection;
 
-
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
@@ -16,17 +12,7 @@ public class Main {
     // 返回如下映射：
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
-    public static Map<String, List<User>> collect(List<User> users) {
-        ArrayList<User> orderUser = new ArrayList<>(users);
-        //创建一个新的列表将user列表传进去
-
-        orderUser.sort(Comparator.comparingInt(User::getAge));
-        //调用sort通过年龄排序
-
-        return orderUser.stream().collect(Collectors.groupingBy(User::getDepartment));
-        //通过stream流的方法进行按部门分组
-    }
-
+    public static Map<String, List<User>> collect(List<User> users) {}
 
     public static void main(String[] args) {
         System.out.println(
