@@ -17,11 +17,14 @@ public class Main {
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
     public static Map<String, List<User>> collect(List<User> users) {
-        ArrayList<User> orderUser = new ArrayList<>(users);//创建一个新的列表将user列表传进去
+        ArrayList<User> orderUser = new ArrayList<>(users);
+        //创建一个新的列表将user列表传进去
 
-        orderUser.sort(Comparator.comparingInt(User::getAge));//调用sort通过年龄排序
+        orderUser.sort(Comparator.comparingInt(User::getAge));
+        //调用sort通过年龄排序
 
-        return orderUser.stream().collect(Collectors.groupingBy(User::getDepartment));//通过stream流的方法进行按部门分组
+        return orderUser.stream().collect(Collectors.groupingBy(User::getDepartment));
+        //通过stream流的方法进行按部门分组
     }
 
 
