@@ -1,8 +1,6 @@
 package com.github.hcsp.collection;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,34 +12,7 @@ public class Main {
     // 返回如下映射：
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
-    public static Map<String, List<User>> collect(List<User> users) {
-        Map<String, List<User>> map = new HashMap<>();
-        for (User user : users) {
-            String department = user.getDepartment();
-            // 省得部门作为 key 时，重复添加
-            if (!map.containsKey(department)) {
-                // 根据非当前部门的元素
-                ArrayList<User> newUsers = new ArrayList<>();
-                for (User newUser : users) {
-                    if (department.equals(newUser.getDepartment())) {
-                        newUsers.add(newUser);
-                    }
-                }
-                // 使用工具集也可以，但这样要侵入 User 类中实现 Comparable 接口
-                // Collections.sort(newUsers);
-                newUsers.sort((o1, o2) -> {
-                    if (o1.getAge() < o2.getAge()) {
-                        return -1;
-                    } else if (o1.getAge() > o2.getAge()) {
-                        return 1;
-                    }
-                    return 0;
-                });
-                map.put(department, newUsers);
-            }
-        }
-        return map;
-    }
+    public static Map<String, List<User>> collect(List<User> users) {}
 
     public static void main(String[] args) {
         System.out.println(

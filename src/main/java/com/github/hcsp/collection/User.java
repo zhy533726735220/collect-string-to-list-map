@@ -51,19 +51,4 @@ public class User {
     public int hashCode() {
         return Objects.hash(id);
     }
-
-//    @Override
-//    public int compareTo(User that) {
-//        if (this.getAge() < that.getAge()) {
-//            return -1;
-//        } else if (this.getAge() > that.getAge()) {
-//            return 1;
-//        }
-//        return 0;
-//    }
-
-    @Override
-    public String toString() {
-        return this.name + this.department + String.valueOf(this.age);
-    }
 }
