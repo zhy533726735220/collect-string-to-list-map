@@ -11,21 +11,29 @@ public class Main {
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
     public static Map<String, List<User>> collect(List<User> users) {
-        Map<String,List<User>> res= new HashMap<>();
-        for (User user:users){
-            if (!res.keySet().contains(user.getDepartment())){
-                res.put(user.getDepartment(),new ArrayList());
 
+            Map<String, List<User>> map = new HashMap<>();
+
+            /**
+             * containsKey()方法用于检查特定键是否被映射到HashMap。它将key元素作为参数，如果该元素在map中映射，则返回True。
+             */
+            for (User user: users) {
+                if (!map.containsKey(user.getDepartment())) {
+                    List<User> list = new ArrayList<>();
+                    list.add(user);
+                    map.put(user.getDepartment(), list);   //put,建立一个，然后放置进去
+                }else {
+                    map.get(user.getDepartment()).add(user);   //获取部门，然后添加到相应的key中去
+                }
             }
-            List<User> list =res.get(user.getDepartment());
-            list.add(user);
+
+            for (String key: map.keySet()) {    //根据map中的key，来sort
+                Collections.sort(map.get(key));
+            }
+            return map;
 
         }
-        for (List<User> userList:res.values()){
-            userList.sort(Comparator.comparingInt(User::getAge));
-        }
-        return res;
-    }
+
 
     public static void main(String[] args) {
         System.out.println(
