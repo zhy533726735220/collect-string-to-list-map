@@ -2,7 +2,8 @@ package com.github.hcsp.collection;
 
 import java.util.Objects;
 
-public class User {
+
+public class User{
     // 用户的id
     private final Integer id;
     // 用户的姓名
@@ -11,6 +12,7 @@ public class User {
     private final int age;
     // 用户的部门，例如"技术部"/"市场部"
     private final String department;
+
 
     public User(Integer id, String name, int age, String department) {
         this.id = id;
@@ -51,4 +53,15 @@ public class User {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
+    @Override
+    public String toString(){
+        return "{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", department='" + department + '\'' +
+                '}';
+    }
+
 }
