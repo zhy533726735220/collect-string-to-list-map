@@ -1,14 +1,9 @@
 package com.github.hcsp.collection;
 
-
-
-
-
-
 import java.util.Objects;
 
 
-public class User implements Comparable{
+public class User{
     // 用户的id
     private final Integer id;
     // 用户的姓名
@@ -69,15 +64,4 @@ public class User implements Comparable{
                 '}';
     }
 
-    @Override
-    public int compareTo(Object o) {
-        User other = (User) o;
-        if(other.age>this.age){
-            return 1;
-        }else if (other.age==this.age){
-            return 0;
-        }else {
-            return -1;
-        }
-    }
 }
