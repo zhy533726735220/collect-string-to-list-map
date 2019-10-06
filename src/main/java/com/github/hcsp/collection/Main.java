@@ -1,10 +1,14 @@
 package com.github.hcsp.collection;
 
 
-
-import java.sql.Array;
-import java.sql.ClientInfoStatus;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.ArrayList;
 
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
