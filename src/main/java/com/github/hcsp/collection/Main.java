@@ -25,17 +25,17 @@ public class Main {
         for(User user: users){
             department.add(user.getDepartment());//先拿到一个部门的set集合类
         }
-        for (String value:department){
+        for(String value:department){
             List<User> list = new ArrayList<>();
             for(User user: users){//双重循环语句遍历部门和人,判断这个人是否是这个部门的
-                if (value.equals(user.getDepartment())){
+                if(value.equals(user.getDepartment())){
                     list.add(user);
                     list.sort(new Comparator<User>() {
                         @Override
-                        public int compare(User user, User t1) {
+                        public int compare(User user,User t1) {
                             if(user.getAge()>t1.getAge()){
                                 return 1;
-                            }else if (user.getAge()==0||t1.getAge()==0||user.getAge()==t1.getAge()){
+                            }else if(user.getAge()==0||t1.getAge()==0||user.getAge()==t1.getAge()){
                                 return 0;
                             }else{
                                 return -1;
