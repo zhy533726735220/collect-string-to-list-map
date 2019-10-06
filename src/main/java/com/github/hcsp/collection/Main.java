@@ -18,31 +18,25 @@ public class Main {
     // 返回如下映射：
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
-    public static Map<String,List<User>> collect(List<User> users){
-        Map<String,List<User>> map = new HashMap<>();
+    public static Map<String, List<User>> collect(List<User> users) {
+        Map<String, List<User>> map = new HashMap<>();
         Set<String> department = new HashSet<>();
 
-        for(User user: users){
-            department.add(user.getDepartment());//先拿到一个部门的set集合类
+        for (User user : users) {
+            department.add(user.getDepartment());
         }
-        for(String value:department){
+        for (String value : department) {
             List<User> list = new ArrayList<>();
-            for(User user:users){//双重循环语句遍历部门和人,判断这个人是否是这个部门的
-                if(value.equals(user.getDepartment())){
+            for (User user : users) {//双重循环语句遍历部门和人,判断这个人是否是这个部门的
+                if (value.equals(user.getDepartment())) {
                     list.add(user);
-                    list.sort(new Comparator<User>(){
+                    list.sort(new Comparator<User>() {
                         @Override
-                        public int compare(User user,User t1){
-                            if(user.getAge()>t1.getAge()){
-                                return 1;
-                            }else if(user.getAge()==0||t1.getAge()==0||user.getAge()==t1.getAge()){
-                                return 0;
-                            }else{
-                                return -1;
-                            }
+                        public int compare(User user, User t1) {
+                            return Integer.compare(user.getAge(), t1.getAge());
                         }
                     });
-                    map.put(value,list);//是这个本部门就加到一个特定的List<User类>,使用比较大小
+                    map.put(value, list);
                 }
             }
 
@@ -50,7 +44,7 @@ public class Main {
         return map;
     }
 
-    public static void main(String [] args){
+    public static void main(String[] args) {
         System.out.println(
                 collect(
                         Arrays.asList(
