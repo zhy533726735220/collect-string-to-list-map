@@ -1,7 +1,5 @@
 package com.github.hcsp.collection;
 
-
-//import java.util.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,16 +21,16 @@ public class Main {
         for (User u: users) {
             String department = u.getDepartment();
             if (resultMap.containsKey(department)) {
-                List<User> users1 = resultMap.get(department);
-                users1.add(u);
-                Collections.sort(users1);
+                resultMap.get(department).add(u);
             } else {
                 ArrayList<User> list = new ArrayList();
                 list.add(u);
                 resultMap.put(department, list);
             }
         }
-
+        for (List<User> userList:resultMap.values()) {
+            Collections.sort(userList);
+        }
         return resultMap;
     }
 
