@@ -27,11 +27,11 @@ public class Main {
     public static Map<String, List<User>> collect(List<User> users) {
         Map<String, List<User>> map = new HashMap<>();
         users.forEach(user -> {
-            if(map.get(user.getDepartment()) == null){
+            if (map.get(user.getDepartment()) == null) {
                 List<User> list = new ArrayList<User>();
                 list.add(user);
                 map.put(user.getDepartment(), list);
-            }else {
+            } else {
                 List<User> list = map.get(user.getDepartment());
                 list.add(user);
                 Collections.sort(list);
