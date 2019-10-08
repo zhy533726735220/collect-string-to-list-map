@@ -1,8 +1,16 @@
 package com.github.hcsp.collection;
 
-import java.util.Arrays;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.Comparator;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
@@ -12,7 +20,31 @@ public class Main {
     // 返回如下映射：
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
-    public static Map<String, List<User>> collect(List<User> users) {}
+    public static Map<String, List<User>> collect(List<User> users) {
+        Map<String, List<User>> result = new HashMap<>();
+        // 获取不同的部门
+        List<String> collect = users.stream()
+                .map(User::getDepartment)
+                .distinct()
+                .collect(Collectors.toList());
+        // 添加部门
+        collect.forEach(item -> {
+            result.put(item, new ArrayList<>());
+        });
+        // 添加list
+        users.stream()
+                .map(item -> {
+                    return result.get(item.getDepartment()).add(item);
+                })
+                .collect(Collectors.toList());
+        // 排序
+        Set<String> strings = result.keySet();
+        for (String item : strings) {
+            List<User> demo1 = result.get(item).stream().sorted(Comparator.comparing(User::getAge)).collect(Collectors.toList());
+            result.put(item, demo1);
+        }
+        return result;
+    }
 
     public static void main(String[] args) {
         System.out.println(
