@@ -37,31 +37,18 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if
-        (this == o) {
+        if (this == o) {
             return true;
         }
-        if
-        (o == null || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        User user = (User) o;
-        return Objects.equals(id, user.id);
+        User person = (User) o;
+        return Objects.equals(id, person.id);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", department='" + department + '\'' +
-                '}';
-    }
-
 }
