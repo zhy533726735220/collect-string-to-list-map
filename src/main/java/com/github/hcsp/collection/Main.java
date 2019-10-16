@@ -1,8 +1,6 @@
 package com.github.hcsp.collection;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
@@ -12,8 +10,21 @@ public class Main {
     // 返回如下映射：
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
-    public static Map<String, List<User>> collect(List<User> users) {}
-
+    static Map<String, List<User>> collect(List<User> users) {
+        Map<String, List<User>> results = new HashMap<>();
+        for (User user : users
+        ) {
+            if (results.containsKey(user.getDepartment())) {
+                (results.get(user.getDepartment())).add(user);
+                Collections.sort(results.get(user.getDepartment()));
+            } else {
+                List<User> userlist = new ArrayList<>();
+                userlist.add(user);
+                results.put(user.getDepartment(), userlist);
+            }
+        }
+        return results;
+    }
     public static void main(String[] args) {
         System.out.println(
                 collect(
