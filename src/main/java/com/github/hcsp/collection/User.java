@@ -56,8 +56,10 @@ public class User implements Comparable<User> {
     public int compareTo(User o) {
         if (this.age > o.getAge()) {
             return 1;
-        } else {
+        } else if (this.age < o.getAge()) {
             return -1;
+        } else {
+            return 0;
         }
     }
 }

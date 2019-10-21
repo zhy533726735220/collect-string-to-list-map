@@ -1,6 +1,12 @@
 package com.github.hcsp.collection;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
@@ -12,23 +18,26 @@ public class Main {
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
     public static Map<String, List<User>> collect(List<User> users) {
         HashMap<String, List<User>> map = new HashMap<>();
-        ArrayList<User> techList = new ArrayList<>();
-        ArrayList<User> marketList = new ArrayList<>();
-        for (User a : users
-        ) {
-            if (a.getDepartment() == "技术部") {
-                techList.add(a);
-            }
-            if (a.getDepartment() == "市场部") {
-                marketList.add(a);
+        HashSet<String> departmentSet = new HashSet<>();
+        for (User a : users) {
+            departmentSet.add(a.getDepartment());
+        }
+
+        for (String s : departmentSet) {
+            map.put(s, assortUsers(users, s));
+        }
+        return map;
+    }
+
+    public static List<User> assortUsers(List<User> a, String string) {
+        List<User> list = new ArrayList<>();
+        for (User s : a) {
+            if (s.getDepartment() == string) {
+                list.add(s);
             }
         }
-        Collections.sort(techList);
-        Collections.sort(marketList);
-
-        map.put("技术部", techList);
-        map.put("市场部", marketList);
-        return map;
+        Collections.sort(list);
+        return list;
     }
 
     public static void main(String[] args) {
