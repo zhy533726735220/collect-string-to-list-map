@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class User implements Comparable<User>{
     // 用户的id
-    private final Integer id ;
+    private final Integer id;
     // 用户的姓名
     private final String name;
     // 用户的年龄
