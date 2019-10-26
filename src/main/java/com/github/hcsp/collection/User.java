@@ -51,7 +51,7 @@ public class User implements Comparable<User>{
     public int hashCode() {
         return Objects.hash(id);
     }
-//    市场部 -> [{name=王五, department=市场部, age=40 }]
+
     @Override
     public String toString(){
         return "name="+this.name +", department=" + this.department + ", age="+ this.age;
