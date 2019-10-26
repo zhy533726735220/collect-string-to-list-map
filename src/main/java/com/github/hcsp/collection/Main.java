@@ -3,6 +3,7 @@ package com.github.hcsp.collection;
 import java.lang.reflect.Array;
 import java.util.*;
 
+
 public class Main {
     // 请编写一个方法，对传入的List<User>进行如下处理：
     // 返回一个从部门名到这个部门的所有用户的映射。同一个部门的用户按照年龄进行从小到大排序。
@@ -15,12 +16,12 @@ public class Main {
 
         Map<String, List<User>> map = new HashMap<>();
 
-        for(User u : users){
+        for (User u : users){
             String department = u.getDepartment();
 
-            if(map.containsKey(department)){
+            if (map.containsKey(department)){
                 map.get(department).add(u);
-            }else{
+            }else {
                 List list = new ArrayList();
                 list.add(u);
                 map.put(department, list);
