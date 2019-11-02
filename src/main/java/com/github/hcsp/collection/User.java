@@ -1,9 +1,9 @@
 package com.github.hcsp.collection;
 
 import java.util.Objects;
-import java.util.TreeSet;
 
-public class User implements Comparable<User>{
+
+public class User implements Comparable<User> {
     // 用户的id
     private final Integer id;
     // 用户的姓名
@@ -14,10 +14,13 @@ public class User implements Comparable<User>{
     private final String department;
 
     @Override
-    public int compareTo(User user){
-    if(age>user.age)return 1;
-    else if(age<user.age)return -1;
-    else return 0;
+    public int compareTo(User user) {
+        if (age > user.age) {
+            return 1;
+        } else if (age < user.age) {
+            return -1;
+        }
+        return 0;
     }
 
     public User(Integer id, String name, int age, String department) {
