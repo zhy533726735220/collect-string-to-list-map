@@ -51,4 +51,9 @@ public class User {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        return String.format("name=%s, department=%s, age=%d", name, department, age);
+    }
 }
