@@ -15,12 +15,7 @@ public class Main {
     //    技术部 -> [{name=李四, department=技术部, age=30 }, {name=张三, department=技术部, age=40 }]
     //    市场部 -> [{name=王五, department=市场部, age=40 }]
     public static Map<String, List<User>> collect(List<User> users) {
-        Map<String, List<User>> resultMap = users.stream().collect(Collectors.groupingBy(User::getDepartment));
-        resultMap.forEach((k, list) ->
-            resultMap.put(k, list.stream().sorted(Comparator.comparing(User::getAge)).collect(Collectors.toList()))
-        );
-
-        return resultMap;
+       return users.stream().sorted(Comparator.comparing(User::getAge)).collect(Collectors.groupingBy(User::getDepartment));
     }
 
     public static void main(String[] args) {
