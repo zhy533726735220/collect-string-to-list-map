@@ -17,14 +17,12 @@ public class Main {
             if (map.containsKey(department)) {
                 List<User> list = map.get(department);
                 list.add(user);
+                list.sort(User::compareTo);
             } else {
                 List<User> list = new ArrayList<>();
                 list.add(user);
                 map.put(department, list);
             }
-        }
-        for (List<User> value : map.values()) {
-            value.sort(User::compareTo);
         }
         return map;
     }
