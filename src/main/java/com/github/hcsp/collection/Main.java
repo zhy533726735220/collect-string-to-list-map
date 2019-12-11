@@ -14,17 +14,19 @@ public class Main {
     private static HashMap<String, List<User>> result = new HashMap();
 
     public static Map<String, List<User>> collect(List<User> users) {
+
+        users.sort((o1, o2) -> {
+            if (o1.getAge() > o2.getAge()) {
+                return 1;
+            } else if (o1.getAge() < o2.getAge()) {
+                return -1;
+            }
+            return 0;
+        });
+
         for (User user : users) {
             if (result.containsKey(user.getDepartment())) {
                 result.get(user.getDepartment()).add(user);
-                result.get(user.getDepartment()).sort((o1, o2) -> {
-                    if (o1.getAge() > o2.getAge()) {
-                        return 1;
-                    } else if (o1.getAge() < o2.getAge()) {
-                        return -1;
-                    }
-                    return 0;
-                });
             } else {
                 List<User> userList = new ArrayList<>();
                 userList.add(user);
