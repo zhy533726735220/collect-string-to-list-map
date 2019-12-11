@@ -17,7 +17,14 @@ public class Main {
         for (User user : users) {
             if (result.containsKey(user.getDepartment())) {
                 result.get(user.getDepartment()).add(user);
-                Collections.sort(result.get(user.getDepartment()));
+                result.get(user.getDepartment()).sort((o1, o2) -> {
+                    if (o1.getAge() > o2.getAge()) {
+                        return 1;
+                    } else if (o1.getAge() < o2.getAge()) {
+                        return -1;
+                    }
+                    return 0;
+                });
             } else {
                 List<User> userList = new ArrayList<>();
                 userList.add(user);
